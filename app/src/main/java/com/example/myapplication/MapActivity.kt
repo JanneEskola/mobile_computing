@@ -70,8 +70,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     Room.databaseBuilder(applicationContext, AppDatabase::class.java, "reminders")
                         .build()
 
-                val uid = db.reminderDao().insert(reminder).toInt()
-                reminder.uid  = uid
+                val uid = db.reminderDao().insert(reminder).toString()
+                //reminder.uid  = uid
                 createGeoFence(selectedLocation,reminder,geofencingClient)
                 db.close()
             }
